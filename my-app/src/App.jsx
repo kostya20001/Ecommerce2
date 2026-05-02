@@ -8,6 +8,7 @@ import Counter from './Counter';
 import Banner from './Banner';
 import SortPanel from './SortPanel';
 import productsData from './data/products';
+import Container from './Container';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <>
+    <Container>
     <Header />
     
     <div className="app-container">
@@ -78,6 +80,7 @@ function App() {
     </div>
 
     <Footer />
+    </Container>
     
     </>
   )

@@ -1,17 +1,41 @@
 import './Header.css';
 import cart from './assets/cart.svg';
 import person from './assets/person.svg';
+import { useCart } from './Container';
 
-function Header() {
+const Header = () => {
+  const { pageType, setPageType, cartTotalCount } = useCart();
+  
     return (
     <header className='header'>
       <div>
         <div>
           <button>TechStore</button>
           <nav>
-            <a href="TV"> TV </a>
-            <a href="Phone"> Phone </a>
-            <a href="Laptop"> Laptop </a>
+        <button 
+          className={pageType === 'tv' ? 'active' : ''}
+          onClick={() => setPageType('tv')}
+        >
+          TVs
+        </button>
+        <button 
+          className={pageType === 'phone' ? 'active' : ''}
+          onClick={() => setPageType('phone')}
+        >
+          Phones
+        </button>
+        <button 
+          className={pageType === 'laptop' ? 'active' : ''}
+          onClick={() => setPageType('laptop')}
+        >
+          Laptops
+        </button>
+        <button 
+          className={pageType === 'cart' ? 'active' : ''}
+          onClick={() => setPageType('cart')}
+        >
+          Cart ({cartTotalCount})
+        </button>
           </nav>
         </div>
         <div>

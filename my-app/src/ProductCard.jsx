@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useCart } from './Container';
 import './ProductCard.css'
 
-const ProductCard = ({ product, onQuantityChange }) => {
+const ProductCard = ({ product }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isLiked, setIsLiked] = useState(false);
-    const [quantity, setQuantity] = useState(0);
+    const { cart, addToCart, updateCartQuantity } = useCart();
+
+    const quantity = cart.get(product.id) || 0;
 
     const {
         id,
@@ -80,24 +83,20 @@ const ProductCard = ({ product, onQuantityChange }) => {
     // Рендер кнопки в зависимости от количества
     const renderCartButton = () => {
         if (quantity === 0) {
-            return (
-                <button className='ButtonCard' onClick={handleAddToCart}>
-                    Add to Cart
-                </button>
-            );
-        } else {
-            return (
-                <div className="cart-controls">
-                    <button className="cart-decrement" onClick={handleDecrement}>
-                        −
-                    </button>
-                    <span className="cart-quantity">{quantity} in cart</span>
-                    <button className="cart-increment" onClick={handleIncrement}>
-                        +
-                    </button>
-                </div>
-            );
-        }
+      return (
+        <button className='ButtonCard' onClick={() => addToCart(product.id)}>
+          Add to Cart
+        </button>
+      );
+    } else {
+      return (
+        <div className="cart-controls">
+          <button onClick={() => updateCartQuantity(product.id, quantity - 1)}>−</button>
+          <span>{quantity} in cart</span>
+          <button onClick={() => updateCartQuantity(product.id, quantity + 1)}>+</button>
+        </div>
+      );
+    }
     };
 
     return(
