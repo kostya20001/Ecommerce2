@@ -1,7 +1,17 @@
-import Home from "./Home";
+import Container from './Container';
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
+import './App.css';
 
 function App() {
-  return <Home />;
+  return (
+    <Container>
+      <Header />
+      <Content />
+      <Footer />
+    </Container>
+  );
 }
 
-export default App
+export default App;

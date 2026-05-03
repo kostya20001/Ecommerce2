@@ -1,5 +1,4 @@
 import React from 'react';
-import './CartPage.css';
 
 const CartPage = ({ cart, products, removeFromCart, updateCartQuantity, totalPrice }) => {
   

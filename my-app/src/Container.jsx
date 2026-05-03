@@ -13,7 +13,7 @@ export const useCart = () => {
 };
 
 const Container = ({ children }) => {
-  const [pageType, setPageType] = useState('tv');
+  const [pageType, setPageType] = useState('techstore');
   const [cart, setCart] = useState(new Map());
 
   const addToCart = (productId, quantity = 1) => {
@@ -68,23 +68,6 @@ const Container = ({ children }) => {
     return total;
   };
 
-  //   const renderChildren = () => {
-  //   return React.Children.map(children, child => {
-  //     if (!React.isValidElement(child)) return child;
-      
-  //     // Передаем пропсы только в Header и Footer
-  //     if (child.type === Header || child.type === Footer) {
-  //       return React.cloneElement(child, {
-  //         pageType,
-  //         setPageType,
-  //         cartTotalCount: getCartTotalCount()
-  //       });
-  //     };
-
-  //     return child;
-  //   });
-  // };
-
 const contextValue = {
     pageType,
     setPageType,
@@ -99,7 +82,6 @@ const contextValue = {
 
   return (
     <CartContext.Provider value={contextValue}>
-      {/* {renderChildren()} */}
       {children}
     </CartContext.Provider>
   );
