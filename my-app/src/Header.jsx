@@ -2,9 +2,10 @@ import './Header.css';
 import cart from './assets/cart.svg';
 import person from './assets/person.svg';
 import { useCart } from './Container';
+import React from 'react';
 
 const Header = () => {
-  const { pageType, setPageType, cartTotalCount } = useCart();
+  const { pageType, setPageType, getCartTotalCount } = useCart();
   
     return (
     <header className='header'>
@@ -34,7 +35,7 @@ const Header = () => {
           className={pageType === 'cart' ? 'active' : ''}
           onClick={() => setPageType('cart')}
         >
-          Cart ({cartTotalCount})
+          Cart ({getCartTotalCount()})
         </button>
           </nav>
         </div>

@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
+export const CartContext = React.createContext(null);
+
+export const useCart = () => {
+  const context = React.useContext(CartContext);
+  if (!context) {
+    throw new Error('useCart must be used within Container');
+  }
+  return context;
+};
+
 const Container = ({ children }) => {
   const [pageType, setPageType] = useState('tv');
   const [cart, setCart] = useState(new Map());
@@ -58,22 +68,22 @@ const Container = ({ children }) => {
     return total;
   };
 
-    const renderChildren = () => {
-    return React.Children.map(children, child => {
-      if (!React.isValidElement(child)) return child;
+  //   const renderChildren = () => {
+  //   return React.Children.map(children, child => {
+  //     if (!React.isValidElement(child)) return child;
       
-      // Передаем пропсы только в Header и Footer
-      if (child.type === Header || child.type === Footer) {
-        return React.cloneElement(child, {
-          pageType,
-          setPageType,
-          cartTotalCount: getCartTotalCount()
-        });
-      };
+  //     // Передаем пропсы только в Header и Footer
+  //     if (child.type === Header || child.type === Footer) {
+  //       return React.cloneElement(child, {
+  //         pageType,
+  //         setPageType,
+  //         cartTotalCount: getCartTotalCount()
+  //       });
+  //     };
 
-      return child;
-    });
-  };
+  //     return child;
+  //   });
+  // };
 
 const contextValue = {
     pageType,
@@ -89,21 +99,10 @@ const contextValue = {
 
   return (
     <CartContext.Provider value={contextValue}>
-      {renderChildren()}
+      {/* {renderChildren()} */}
+      {children}
     </CartContext.Provider>
   );
-};
-
-// Создаем Context для доступа из любых компонентов
-export const CartContext = React.createContext(null);
-
-// Хук для использования контекста
-export const useCart = () => {
-  const context = React.useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart must be used within Container');
-  }
-  return context;
 };
 
 export default Container;
