@@ -36,21 +36,20 @@ const Header = () => {
         >
           Laptops
         </button>
-        <button 
-          className={pageType === 'cart' ? 'active' : ''}
-          onClick={() => setPageType('cart')}
-        >
-          Cart ({getCartTotalCount()})
-        </button>
-          </nav>
+        </nav>
         </div>
-        <div>
-          <button>
-            <img
-              src={cart}
-              alt="Cart"
-              style={{ width: '20px', height: '20px' }}
-            />
+        <div className="cart-button-wrapper">
+          <button 
+            className="cart-button"
+            onClick={() => setPageType('cart')}>
+              <img
+                src={cart}
+                alt="Cart"
+                style={{ width: '20px', height: '20px' }}
+              />
+            {getCartTotalCount() > 0 && (
+              <span className="cart-badge">{getCartTotalCount()}</span>
+            )}
           </button>
           <button>
             <img

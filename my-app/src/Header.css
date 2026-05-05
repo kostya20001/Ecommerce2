@@ -45,6 +45,7 @@
   color: #333333;            /* Темно-серый цвет текста */
   display: inline-flex;      /* Для идеального выравнивания */
   align-items: center;
+  position: relative;
 }
 
 /* Кнопка TechStore (логотип) - делаем жирной */
@@ -65,4 +66,48 @@
 /* Активная ссылка (можно добавить класс .active) */
 .header a:active {
   transform: scale(0.98);
+}
+
+.cart-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Стиль для кнопки корзины */
+.cart-button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px !important;
+  margin: -2px;  /
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #dc3545;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+/* Для чисел больше 9 - делаем бейдж чуть шире */
+.cart-badge.wide {
+  width: auto;
+  min-width: 18px;
+  padding: 0 5px;
+  border-radius: 12px;
 }
