@@ -13,16 +13,16 @@ const Header = () => {
         <div>
           <button
           className={pageType === 'techstore' ? 'active' : ''}
-            onClick={() => setPageType('techstore')}
+          onClick={() => setPageType('techstore')}
           >
             TechStore
           </button>
           <nav>
         <button 
-          className={pageType === 'tv' ? 'active' : ''}
-          onClick={() => setPageType('tv')}
+        className={pageType === 'tv' ? 'active' : ''}
+        onClick={() => setPageType('tv')}
         >
-          TVs
+          TV
         </button>
         <button 
           className={pageType === 'phone' ? 'active' : ''}

@@ -8,12 +8,12 @@
 }
 /* Первый div - основной контейнер (ширина и выравнивание) */
 .header > div {
-  max-width: 1200px; /* Максимальная ширина контента */
-  margin: 0 auto;    /* Центрирование по горизонтали */
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between; /* Раздвигает левую и правую части */
-  align-items: center;            /* Выравнивает по вертикали */
-  height: 70px;                  /* Высота шапки */
+  align-items: center;
+  height: 70px;
 }
 
 /* Левая группа (логотип + навигация) */
@@ -30,11 +30,10 @@
   gap: 20px; /* Расстояние между корзиной и профилем */
 }
 
-/* Общий стиль для ВСЕХ кнопок и ссылок внутри header */
 .header button,
 .header a {
-  background: none;          /* Убираем стандартный фон кнопок */
-  border: none;              /* Убираем стандартную рамку */
+  background: none;          
+  border: none;              
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -42,18 +41,18 @@
   border-radius: 8px;
   transition: all 0.2s ease;
   text-decoration: none;     /* Убираем подчеркивание у ссылок */
-  color: #333333;            /* Темно-серый цвет текста */
+  color: #333333;
   display: inline-flex;      /* Для идеального выравнивания */
   align-items: center;
   position: relative;
 }
 
 /* Кнопка TechStore (логотип) - делаем жирной */
-.header button:first-child {
+.header > div > div:first-child > button:first-child {
   font-size: 20px;
   font-weight: 700;
-  color: #000000; /* Синий акцент */
-  padding: 8px 0; /* Убираем боковые отступы, т.к. gap уже есть */
+  color: #000000;
+  padding: 8px 0; 
 }
 
 /* Эффект при наведении для всех кнопок/ссылок */
@@ -91,7 +90,7 @@
   position: absolute;
   top: -5px;
   right: -5px;
-  background-color: #dc3545;
+  background-color: #000000;
   color: white;
   font-size: 11px;
   font-weight: bold;
