@@ -119,7 +119,6 @@ const CartPage = () => {
           ))}
         </div>
         
-        {/* Сводка заказа */}
         <div className="order-summary">
           <h3>Order Summary</h3>
           
@@ -148,7 +147,7 @@ const CartPage = () => {
           </button>
           
           <button className="back-shopping-btn" onClick={handleBackToShopping}>
-            Back to Shopping
+            Continue Shopping
           </button>
         </div>
       </div>

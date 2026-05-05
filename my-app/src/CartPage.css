@@ -7,8 +7,10 @@
 .cart-page h2 {
   margin-bottom: 30px;
   font-size: 28px;
-  color: #333;
+  color: #000000;
+  font-family:'Times New Roman', Times, serif;
 }
+
 
 /* Пустая корзина */
 .cart-empty {
@@ -144,7 +146,7 @@
 
 /* Сводка заказа */
 .order-summary {
-  background: #f8f9fa;
+  border: 1px solid #0000001A;
   padding: 24px;
   border-radius: 12px;
   height: fit-content;
@@ -160,7 +162,6 @@
   display: flex;
   justify-content: space-between;
   padding: 12px 0;
-  border-bottom: 1px solid #e9ecef;
   color: #555;
 }
 
@@ -182,7 +183,7 @@
 .checkout-btn {
   width: 100%;
   padding: 14px;
-  background-color: #28a745;
+  background-color: #000000;
   color: white;
   border: none;
   border-radius: 8px;
@@ -201,8 +202,8 @@
   width: 100%;
   padding: 12px;
   background-color: transparent;
-  color: #007bff;
-  border: 1px solid #007bff;
+  color: #000000;
+  border: 1px solid #0000001A;
   border-radius: 8px;
   font-size: 14px;
   cursor: pointer;
