@@ -17,7 +17,7 @@ const Header = () => {
           >
             TechStore
           </button>
-          <nav>
+          <nav className={pageType === 'cart' ? 'hidden' : ''}>
         <button 
         className={pageType === 'tv' ? 'active' : ''}
         onClick={() => setPageType('tv')}

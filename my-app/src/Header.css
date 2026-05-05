@@ -111,3 +111,7 @@
   border-radius: 12px;
 }
 
+.header nav.hidden {
+  display: none;
+}
+
