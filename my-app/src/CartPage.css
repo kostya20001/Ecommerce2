@@ -8,9 +8,8 @@
   margin-bottom: 30px;
   font-size: 28px;
   color: #000000;
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
 }
-
 
 /* Пустая корзина */
 .cart-empty {
@@ -53,28 +52,24 @@
   overflow: hidden;
 }
 
-.cart-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 50px;
-  padding: 15px 20px;
-  background-color: #f8f9fa;
-  font-weight: 600;
-  color: #666;
-  border-bottom: 1px solid #e9ecef;
-}
-
 .cart-item {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 50px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
+  margin: 10px;
   border-bottom: 1px solid #e9ecef;
+  border: 1px solid #0000001A;
+  border-radius: 8px;
+  gap: 20px;
 }
 
+/* Левая часть с информацией о товаре */
 .cart-item-info {
   display: flex;
   gap: 15px;
   align-items: center;
+  flex: 2;
 }
 
 .cart-item-image {
@@ -96,11 +91,21 @@
   margin-top: 4px;
 }
 
+/* Правая часть с ценой и корзиной */
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
 /* Кнопки количества */
 .cart-item-quantity {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-top: 10px;
 }
 
 .quantity-btn {
@@ -125,19 +130,25 @@
   font-weight: 500;
 }
 
+/* Цена за позицию */
 .cart-item-total {
   font-weight: 600;
   color: #333;
+  font-size: 16px;
+  text-align: right;
 }
 
+/* Кнопка удаления */
 .remove-btn {
   background: none;
   border: none;
-  font-size: 20px;
   cursor: pointer;
   padding: 8px;
   border-radius: 6px;
   transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .remove-btn:hover {
@@ -221,28 +232,23 @@
     grid-template-columns: 1fr;
   }
   
-  .cart-header {
-    display: none;
-  }
-  
   .cart-item {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
   .cart-item-info {
-    justify-content: center;
+    width: 100%;
   }
   
-  .cart-item-quantity {
-    justify-content: center;
+  .cart-item-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .cart-item-total {
-    text-align: center;
-  }
-  
-  .remove-btn {
-    justify-self: center;
+    text-align: left;
   }
 }

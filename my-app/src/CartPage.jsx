@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useCart } from './Container';
 import productsData from './data/products';
+import trash from './assets/trash.svg'
 import './CartPage.css';
-
-// Иконка корзины/мусорки (можно заменить на SVG или emoji)
-const TrashIcon = () => <span role="img" aria-label="delete">🗑️</span>;
 
 const CartPage = () => {
   const { cart, updateCartQuantity, removeFromCart, setPageType } = useCart();
@@ -62,18 +60,11 @@ const CartPage = () => {
       <h2>Shopping Cart</h2>
       
       <div className="cart-layout">
-        {/* Список товаров */}
         <div className="cart-items">
-          <div className="cart-header">
-            <span>Product</span>
-            <span>Quantity</span>
-            <span>Total</span>
-            <span></span>
-          </div>
           
           {cartItems.map(item => (
             <div key={item.id} className="cart-item">
-              {/* Миниатюра и информация */}
+              {/* Левая часть - информация о товаре */}
               <div className="cart-item-info">
                 <img 
                   src={item.images?.[0]} 
@@ -83,11 +74,7 @@ const CartPage = () => {
                 <div>
                   <div className="cart-item-brand">{item.make || item.brand}</div>
                   <div className="cart-item-model">{item.model}</div>
-                </div>
-              </div>
-              
-              {/* Кнопки управления количеством */}
-              <div className="cart-item-quantity">
+                  <div className="cart-item-quantity">
                 <button 
                   onClick={() => updateCartQuantity(item.id, item.quantity - 1)}
                   className="quantity-btn"
@@ -102,22 +89,29 @@ const CartPage = () => {
                   +
                 </button>
               </div>
-              
-              {/* Цена за позицию */}
-              <div className="cart-item-total">
-                {formatPrice(item.price * item.quantity)}
+              </div>
               </div>
               
-              {/* Кнопка удаления */}
+               {/* Правая часть - цена и корзина */}
+            <div className="cart-item-actions">
               <button 
                 onClick={() => removeFromCart(item.id)}
                 className="remove-btn"
               >
-                <TrashIcon />
+                <img
+                  src={trash}
+                  alt="trash"
+                  style={{ width: '20px', height: '20px' }}
+                />
               </button>
+              <div className="cart-item-total">
+                {formatPrice(item.price * item.quantity)}
+              </div>
+              
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
         
         <div className="order-summary">
           <h3>Order Summary</h3>
