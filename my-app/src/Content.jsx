@@ -1,6 +1,5 @@
 import React from 'react';
 import { useCart } from './Container';
-import productsData from './data/products';
 import ProductCard from './ProductCard';
 import TechStore from './TechStore';
 import TvListing from './TvListing';
