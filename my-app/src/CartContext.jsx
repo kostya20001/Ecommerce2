@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useReducer, useCallback, useMemo } from 'react';
+import React, { useReducer, useCallback, useMemo } from 'react';
+import { CartContext } from './contexts/CartContext';
 
-// 1. useReducer для управления корзиной (это закроет требование useReducer)
 const cartReducer = (state, action) => {
   const newCart = new Map(state);
   
@@ -36,14 +36,9 @@ const cartReducer = (state, action) => {
   }
 };
 
-// Создаем контекст
-const CartContext = createContext(null);
-
-// Провайдер с хуками
 export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, new Map());
 
-  // useCallback для функций, чтобы они не пересоздавались
   const addToCart = useCallback((productId, quantity = 1) => {
     dispatch({ type: 'ADD_TO_CART', payload: { productId, quantity } });
   }, []);
@@ -60,7 +55,6 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'CLEAR_CART' });
   }, []);
 
-  // useMemo для вычисляемых значений (оптимизация)
   const getCartTotalCount = useCallback(() => {
     let total = 0;
     for (const quantity of cart.values()) {
@@ -84,7 +78,6 @@ export const CartProvider = ({ children }) => {
     return total;
   }, [cart]);
 
-  // useMemo для мемоизации всего значения контекста
   const contextValue = useMemo(() => ({
     cart,
     addToCart,
@@ -101,13 +94,4 @@ export const CartProvider = ({ children }) => {
       {children}
     </CartContext.Provider>
   );
-};
-
-// Хук для использования корзины
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart must be used within CartProvider');
-  }
-  return context;
 };

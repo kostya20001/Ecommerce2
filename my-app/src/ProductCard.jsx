@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCart } from './Container';
+import { useCart } from './hooks/useCart';
 import './ProductCard.css'
 
 const ProductCard = ({ product }) => {
